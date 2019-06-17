@@ -1,26 +1,45 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
 
 Vue.use(Router);
 
-export default new Router({
-  mode: "history",
-  base: process.env.BASE_URL,
+let router = new Router({
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: Home
+      path: '/',
+      redirect: 'home'
     },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+    { // 首页
+      path: '/home',
+      name: 'home',
+      component: () => import('./views/Home.vue')
+    },
+    { // 节点详情页
+      path: '/details',
+      name: 'details',
+      component: () => import('./views/Details.vue')
+    },
+    { // 修改节点信息
+      path: '/alterMsg',
+      name: 'alterMsg',
+      component: () => import('./views/AlterMsg.vue')
+    },
+    { // 登录页
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
+    },
+    { // 修改密码
+      path: '/amendPasswd',
+      name: 'amendPasswd',
+      component: () => import('./views/AmendPasswd.vue')
+    },
+    { // 修改密码
+      path: '/userName',
+      name: 'userName',
+      component: () => import('./views/UserName.vue')
     }
   ]
-});
+})
+
+export default router;
