@@ -42,7 +42,7 @@ export default {
                     }
                 }
 
-                axios.post('http://nuls.yqkkn.com/admin/changeUsername', formData, config)
+                axios.post('http://nuls.yqkkn.com:9898/admin/changeUsername', formData, config)
                 .then(function (res) {
                     let data = res.data;
                     if( data.code == 0 ){

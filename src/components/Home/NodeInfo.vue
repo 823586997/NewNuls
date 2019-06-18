@@ -93,7 +93,7 @@ export default {
             this.$router.push({path: '/alterMsg' , query:{ id: id }});
         },
         getNodeInfo(){
-            let url = 'http://nuls.yqkkn.com/nodes/0';
+            let url = 'http://nuls.yqkkn.com:9898/nodes/0';
             axios.get(url)
             .then( (res) => {
                 // console.log(res);

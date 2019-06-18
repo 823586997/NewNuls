@@ -50,7 +50,7 @@ export default {
                     }
                 }
 
-                axios.post('http://nuls.yqkkn.com/passport/login', formData, config)
+                axios.post('http://nuls.yqkkn.com:9898/passport/login', formData, config)
                 .then(function (res) {
                     let data = res.data;
                     if( data.code == 0 ){

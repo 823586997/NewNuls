@@ -146,7 +146,7 @@ export default {
          this.$router.push({path: '/alterMsg' , query:{ id : this.data.id }});
       },
       getData(){
-         let url = 'http://nuls.yqkkn.com/node/'+this.$route.query.id;
+         let url = 'http://nuls.yqkkn.com:9898/node/'+this.$route.query.id;
          axios.get(url)
          .then( (res) => {
             // console.log(res);
@@ -155,7 +155,7 @@ export default {
          })
       },
       judgeYes(){
-        let url = 'http://nuls.yqkkn.com/admin/nodePass';
+        let url = 'http://nuls.yqkkn.com:9898/admin/nodePass';
         axios.post(url,{
           cmd:'1',
           body:{
@@ -171,7 +171,7 @@ export default {
         })
       },
       judgeNo(){
-        let url = 'http://nuls.yqkkn.com/admin/nodeReject';
+        let url = 'http://nuls.yqkkn.com:9898/admin/nodeReject';
         axios.post(url,{
           cmd:'1',
           body:{

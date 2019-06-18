@@ -84,7 +84,7 @@ export default {
    },
    methods: {
         getData(){
-            let url = 'http://nuls.yqkkn.com/node/'+this.$route.query.id;
+            let url = 'http://nuls.yqkkn.com:9898/node/'+this.$route.query.id;
             axios.get(url)
             .then( (res) => {
                 let data = res.data;
@@ -160,7 +160,7 @@ export default {
                 }
             }
 
-            axios.post('http://nuls.yqkkn.com/admin/updateNodeInfo', formData, config)
+            axios.post('http://nuls.yqkkn.com:9898/admin/updateNodeInfo', formData, config)
             .then(function (res) {
                 let data = res.data;
                 if( data.code == 0 ){

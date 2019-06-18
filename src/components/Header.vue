@@ -41,7 +41,7 @@ export default {
         // 登录退出
         login(){
             if(this.id){
-                let url = 'http://nuls.yqkkn.com/passport/logout';
+                let url = 'http://nuls.yqkkn.com:9898/passport/logout';
                 axios.get(url)
                 .then( (res) => {
                     localStorage.clear();

@@ -3,6 +3,7 @@ module.exports = {
     pluginOptions: {
       cordovaPath: 'app'
     },
+    baseUrl: './',
     devServer: {
       proxy: {
         '/passport/login':{  //  登录
