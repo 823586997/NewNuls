@@ -46,8 +46,9 @@ export default {
                 .then(function (res) {
                     let data = res.data;
                     if( data.code == 0 ){
-                        that.$message('设置成功');
+                        location.reload();
                         that.$router.push('/');
+                        that.$message('设置成功');
                     }else{
                         that.$message(data.msg);
                     }

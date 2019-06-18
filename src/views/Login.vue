@@ -60,6 +60,7 @@ export default {
                         if( data.result.username == null ){
                             that.$router.push('/userName');
                         }else{
+                            location.reload();
                             that.$router.push('/');
                             that.$message('登录成功');
                         }
