@@ -1,25 +1,25 @@
 <template>
-    <div class="home">
-        <NodeInfo></NodeInfo>
-    </div>
+  <div class="home">
+    <NodeInfo></NodeInfo>
+  </div>
 </template>
 
 <script>
-
-import NodeInfo from '../components/Home/NodeInfo';
+import NodeInfo from "../components/Home/NodeInfo";
 
 export default {
-    name: '',
-    components: { NodeInfo },
-    data() {
-        return {}
-    },
-}
+  name: "",
+  components: { NodeInfo },
+  data() {
+    return {};
+  }
+};
 </script>
 
-<style scoped lang='scss'>
-.home{
+<style scoped lang="scss">
+.home {
   width: 100%;
   background: #fafbfe;
+  padding-bottom: 40px;
 }
 </style>
