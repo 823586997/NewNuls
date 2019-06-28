@@ -66,9 +66,9 @@ export default {
           let data = res.data;
           if (data.code == 0) {
             localStorage.id = data.result.id;
-            // localStorage.nodeId = data.result.nodeId;
-            localStorage.role = data.result.role;
-            this.$store.commit('getNodeId',data.result.nodeId);
+            console.log(data.result);
+            that.$store.commit('getNodeId',data.result.nodeId);
+            that.$store.commit('getRole',data.result.role);
             if (data.result.username == null) {
               that.$router.push("/userName");
             } else {

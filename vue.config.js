@@ -8,7 +8,7 @@ module.exports = {
     proxy: {
       "/passport/login": {
         //  登录
-        target: "http://192.168.1.8:8080/",
+        target: "http://192.168.3.3:8080/",
         changeOrigin: true
       },
       "/nodes": {
@@ -33,7 +33,7 @@ module.exports = {
       },
       "/passport/logout": {
         // 退出登录
-        target: "http://192.168.1.8:8080/",
+        target: "http://192.168.3.3:8080/",
         changeOrigin: true
       },
       "/admin/changeUsername": {

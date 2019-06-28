@@ -8,7 +8,7 @@
       <transition name="fade">
         <ul v-if="flag">
           <li @click="Home()">首页</li>
-          <li @click="login()">{{ nodeId ? "退出" : "登录" }}</li>
+          <li @click="login()">{{ role ? "退出" : "登录" }}</li>
           <li @click="user()" >账户管理</li>
           <li v-if="role == 'user'" @click="nodeInfo()">节点管理</li>
         </ul>
@@ -19,18 +19,20 @@
 
 <script>
 import axios from "axios";
+import { mapState } from 'vuex';
 
 export default {
   name: "",
   data() {
     return {
       flag: false,
-      nodeId: this.$store.state.nodeId,
-      role: localStorage.role ? localStorage.roole : ''
     };
   },
-  mounted(){
-    window.addEventListener('unload',this.setNodeId);
+  computed:{
+    ...mapState({
+      nodeId: state => state.nodeId,
+      role: state => state.role
+    })
   },
   methods: {
     nav() {
@@ -41,12 +43,13 @@ export default {
       this.flag = !this.flag;
     },
     login() {// 登录退出
-      if (this.nodeId) {
-        
+      if (this.role) {
         let url = "http://nuls.yqkkn.com:9898/passport/logout";
         axios.get(url).then(res => {
-          localStorage.clear();
-          location.reload();
+          this.$store.commit('getNodeId','');
+          this.$store.commit('getRole','');
+          this.nodeId = this.$store.state.nodeId;
+          this.role = this.$store.state.role;
           this.$message("您已成功退出登录");
         });
       } else {
@@ -60,16 +63,13 @@ export default {
     },
     // 账户管理
     user() {
-      if (this.nodeId) {
+      if (this.role) {
         this.$router.push({ path: "/amendPasswd" });
         this.flag = !this.flag;
       } else {
         this.$message("请先登录在进行账户管理操作");
       }
     },
-    setNodeId(){
-      localStorage.nodeId = this.nodeId;
-    }
   }
 };
 </script>

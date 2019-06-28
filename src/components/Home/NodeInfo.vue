@@ -110,7 +110,7 @@ export default {
   data() {
     return {
       data: [],
-      role: localStorage.role ? localStorage.role : "",
+      role: this.$store.state.role,
       nodeId: this.$store.state.nodeId,
       searchValue: ''
     };
